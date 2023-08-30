@@ -1,13 +1,4 @@
-# Drawing App (Software-Systeme-Teil-2)
-
-Hochschule Augsburg \
-Fakultät für Informatik \
-Sommersemester 2023 \
-Prof. Dr. Phillip Heidegger
-
-Michael Schwarz, #2141622, MIN, <michael.schwarz@hs-augsburg.de>
-
----
+# Drawing App (SST2)
 
 ## Architektur/Übersicht
 
