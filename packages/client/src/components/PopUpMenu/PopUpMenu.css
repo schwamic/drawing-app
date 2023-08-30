@@ -1,0 +1,49 @@
+#pop-up-menu__portal {
+  position: relative;
+}
+
+.pop-up-menu__container {
+  position: relative;
+}
+
+.pop-up-menu__backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(var(--rgb-grey));
+  opacity: 0.1;
+}
+
+.pop-up-menu {
+  position: absolute;
+  z-index: 1000;
+}
+
+.pop-up-menu--hidden {
+  display: none;
+}
+
+.pop-up-menu {
+  padding: 6px 0;
+  margin: 0;
+  background: rgb(var(--rgb-background-body));
+  border-radius: 8px;
+  border: 1px solid rgb(var(--rgb-outline));
+  color: rgb(var(--white));
+}
+
+.pop-up-menu__item {
+  padding: 6px 12px;
+  list-style: none;
+  cursor: pointer;
+}
+
+.pop-up-menu__item:hover {
+  background: rgb(var(--rgb-selection));
+}
+
+.pop-up-menu__divider {
+  margin: 0;
+}

@@ -1,0 +1,35 @@
+@startuml shape-classes
+title Shape Klassen
+
+interface Shape {
+  id: number
+  draw(): void
+}
+
+class Line {
+  from: Point2D
+  to: Point2D
+}
+
+class Circle {
+  center: Point2D
+  radius: number
+}
+
+class Rectangle {
+  from: Point2D
+  to: Point2D
+}
+
+class Triangle {
+  p1: Point2D
+  p2: Point2D
+  p3: Point2D
+}
+
+Shape <|-- Line
+Shape <|-- Circle
+Shape <|-- Rectangle
+Shape <|-- Triangle
+
+@enduml

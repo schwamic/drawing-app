@@ -1,0 +1,7 @@
+export type HTTPResponse =
+  | "OK"
+  | "UNAUTHORIZED"
+  | "NOT_FOUND"
+  | "BAD_REQUEST"
+  | "VALIDATION_ERROR"
+  | "INTERNAL_SERVER_ERROR";

@@ -1,0 +1,34 @@
+@startuml verteilung
+title System und Artefakte
+
+node <<device>>Ubuntu {
+    node <<execution-environment>>Docker {
+        node <<image>>PostgreSQL {
+            node <<volume>>Datenbank as n1 {
+            }
+        }
+    }
+    node <<execution-environment>>NodeJS {
+        node <<service>>PrismaClient as n2 {
+
+        }
+        node <<executable>>HTTPServer as n3 {
+            artifact se as "Server.js"
+            artifact sh1 as "Shared.js"
+        }
+    }
+    node <<execution-environment>>WebBrowser {
+        node <<executable>>WebApp as n4 {
+            artifact ah as "App.html"
+            artifact ac as "App.css"
+            artifact aj as "App.js"
+            artifact sa2 as "Shared.js"
+        }
+    }
+}
+ 
+n1 <-- n2 : lesen & schreiben
+n2 <-- n3 : lesen & schreiben
+n3 <--> n4 : http(s) & ws(s)
+
+@enduml

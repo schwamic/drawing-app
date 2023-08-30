@@ -1,0 +1,1 @@
+export { ShapeDto } from "./ShapeDto";

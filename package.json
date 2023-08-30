@@ -1,0 +1,30 @@
+{
+  "name": "drawing-app",
+  "version": "1.0.0",
+  "description": "A simple drawing app",
+  "author": "Michael Schwarz",
+  "license": "AGPL-3.0-or-later",
+  "workspaces": [
+    "packages/*"
+  ],
+  "private": true,
+  "engines": {
+    "node": ">=16.16"
+  },
+  "scripts": {
+    "start": "./scripts/start.sh",
+    "start:server": "npm run start -w=@drawing-app/server",
+    "dev": "npm run dev -w=@drawing-app/shared & npm run dev -w=@drawing-app/server & npm run dev -w=@drawing-app/client",
+    "clean": "./scripts/clean.sh",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|ts|json)\""
+  },
+  "devDependencies": {
+    "@types/node": "^18.13.0",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "typescript": "^4.9.5"
+  }
+}

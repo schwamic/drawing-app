@@ -1,0 +1,99 @@
+@startuml canvas-view-classes
+title Drawing App – A rough overview of the most important relationships
+
+interface Page {
+  onInit()
+  onDestroy()
+  getHtml()
+}
+
+interface ShapeManager {
+  updateConfiguration(config: Configuration,applyChangesOnSelection: boolean)
+  updateZOrder(toForeground:boolean)
+  deleteSelection()
+  unselectAll()
+  getConfiguration(): Configuration
+  onUpdateCallback((updates: UpdatesFromCanvas) => void)
+}
+
+interface ToolManager {
+  onUpdate(callback: (settings: Settings) => void)
+  setSettings(settings: Settings)
+  getSettings(): Settings;
+}
+
+interface Shape {
+  id: number
+  draw():void
+}
+
+abstract AbstractShape{}
+
+abstract AbstractView{}
+
+class CanvasView {
+  canvas: ShapeManager
+  toolArea: ToolManager
+  apiClient: ApiClient
+  userManager: UserManager
+}
+note right of CanvasView
+  Mediator/Controller
+end note
+
+class Canvas {
+  -shapes: Shape[]
+  -ctx: CanvasRenderingContext2D
+  -draw()
+}
+
+note left of Canvas
+  Pseudo-implementation as intuition.
+end note
+
+class ShapeFactory {
+  create(): Shape
+  calculateRadius(from: Point2D, to: Point2D): number
+  createZOrder(shapes: Shape[], toForeground = true)
+}
+
+note bottom of ShapeFactory
+  Factory Method "create()"
+end note
+
+class Circle {
+  draw(ctx: CanvasRenderingContext2D)
+}
+
+note bottom of Circle
+  Beside Line, Rectangle and Triangle
+end note
+
+class ToolArea {}
+
+enum ShapeType {
+  Circle
+  Line
+  Rectangle
+  Triangle
+}
+
+enum ToolType {
+  Move
+  Select
+  Draw
+}
+
+ToolArea --|> ToolManager
+ShapeFactory *--> Circle : erzeugt
+Circle --|> Shape
+Circle --|> AbstractShape
+Canvas --|> ShapeManager
+Canvas "1" o--> "0..*" Circle : zeichnet
+Canvas "1" *--> "1" ShapeFactory
+CanvasView "1" *--> "1" ToolArea
+CanvasView "1" *--> "1" Canvas
+CanvasView --|> Page
+CanvasView --|> AbstractView
+
+@enduml

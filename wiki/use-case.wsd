@@ -1,0 +1,40 @@
+@startuml usecase
+title App User-Cases
+
+left to right direction
+actor User as user1
+
+package Übersichtsseite {
+    usecase "Liste aller existierenden Zeichenflächen einsehen" as UCÜ1
+    usecase "Existierende Zeichenfläche öffnen" as UCÜ2
+    usecase "Neue Zeichenfläche erstellen" as UCÜ3
+}
+
+package Zeichenfläche {
+    usecase "Symbol erstellen (Linie, Rechteck, Dreieck, Kreis)" as UCZ1
+    usecase "Symbol selektieren (mit Alt-Taste durch Gruppe iterieren)" as UCZ2
+    usecase "Symbole selektieren mit Strg-Taste" as UCZ3
+    usecase "Symbol(e) löschen" as UCZ4
+    usecase "Symbol(e) Hintegrundfarbe einstellen" as UCZ5
+    usecase "Symbol(e) Randfarbe einstellen" as UCZ6
+    usecase "Symbol(e) in den Vordergrund/Hintergrund bewegen" as UCZ7
+    usecase "Symbol(e) Position verändern (Drag&Drop)" as UCZ8
+    usecase "(Multi-User) Änderungen anderer User in Echtzeit sehen" as UCZ9
+    usecase "(Multi-User) Identifizierung aller User auf der Zeichenfläche" as UCZ10
+}
+
+user1 --> UCZ1
+user1 --> UCZ2
+user1 --> UCZ3
+user1 --> UCZ4
+user1 --> UCZ5
+user1 --> UCZ6
+user1 --> UCZ7
+user1 --> UCZ8
+user1 --> UCZ9
+user1 --> UCZ10
+user1 --> UCÜ1
+user1 --> UCÜ2
+user1 --> UCÜ3
+
+@enduml

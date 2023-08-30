@@ -1,0 +1,24 @@
+.navigation-container {
+  margin-bottom: 30px;
+}
+
+.draw-container {
+  position: relative;
+  display: flex;
+  align-items: start;
+  width: 1200px;
+  justify-content: space-between;
+}
+
+.draw-container__tool {
+  display: flex;
+  align-items: center;
+}
+
+.draw-container__canvas {
+  max-width: 920px;
+}
+
+.info--hidden {
+  display: none;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@drawing-app/client",
+  "version": "1.0.0",
+  "source": "src/index.html",
+  "scripts": {
+    "dev": "parcel",
+    "build": "parcel build"
+  },
+  "dependencies": {
+    "@drawing-app/shared": "^1.0.0",
+    "feather-icons": "^4.29.0"
+  },
+  "devDependencies": {
+    "@parcel/config-default": "^2.8.3",
+    "@parcel/resolver-glob": "^2.8.3",
+    "@parcel/transformer-typescript-tsc": "^2.8.3",
+    "@types/feather-icons": "^4.29.1",
+    "parcel": "^2.8.3"
+  }
+}

@@ -1,0 +1,45 @@
+/**
+* Global UI Components
+*/
+@import "./components/PopUpMenu/PopUpMenu.css";
+@import "./components/InfoBox/InfoBox.css";
+
+/**
+* App Views
+*/
+@import "./views/CanvasView/components/Canvas/Canvas.css";
+@import "./views/CanvasView/components/ToolArea/ToolArea.css";
+@import "./views/CanvasView/CanvasView.css";
+
+/**
+* Global Styles
+*/
+:root {
+  /**
+  * Colors
+  */
+  --rgb-white: 255, 255, 255;
+  --rgb-grey: 120, 132, 146;
+  --rgb-blue: 28, 126, 214;
+  --rgb-green: 54, 178, 77;
+  --rgb-red: 255, 33, 51;
+  --rgb-yellow: 255, 201, 54;
+  /* water.css */
+  --rgb-selection: 28, 118, 197;
+  --rgb-background: 22, 31, 39;
+  --rgb-background-body: 32, 43, 56;
+  --rgb-outline: 169, 177, 186; /*--text-muted*/
+}
+
+body {
+  max-width: 1200px;
+}
+
+.feather-30 {
+  width: 30px;
+  height: 30px;
+}
+
+.pointer-events-none {
+  pointer-events: none;
+}

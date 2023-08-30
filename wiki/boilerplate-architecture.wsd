@@ -1,0 +1,51 @@
+@startuml ph-draw-app-classes
+title Boilerplate – A rough overview of the most important relationships
+
+interface IShapeManager {
+  addShape()
+  removeShape()
+  removeShapeWithId()
+}
+interface Shape {
+  id: number
+  draw():void
+}
+interface ShapeFactory {
+  handleMouseDown()
+  handleMouseUp()
+  handleMouseMove()
+}
+class CanvasView{
+  init()
+}
+abstract AbstractFactory {}
+class ShapeManager{
+}
+class Canvas {
+  shapes: Shape[]
+}
+class CircleFactory {
+  shapeManager: IShapeManager
+}
+class ToolArea {
+  shapesSelector: ShapeFactory[]
+  getSelectedShape(): ShapeFactory
+}
+
+CircleFactory --|> ShapeFactory
+CircleFactory --|> AbstractFactory
+CircleFactory --> Circle : erzeugt
+Circle --|> Shape
+ShapeManager --|> IShapeManager
+ShapeManager "1" --> "1" Canvas
+Canvas --|> IShapeManager
+Canvas "1" --> "1" ToolArea
+Canvas "1" o--> "0..*" Circle : zeichnet
+CircleFactory "1" --> "1" ShapeManager
+ToolArea --> CircleFactory
+CanvasView *--> Canvas
+CanvasView *--> ToolArea
+CanvasView *--> ShapeManager
+CanvasView *--> CircleFactory
+
+@enduml

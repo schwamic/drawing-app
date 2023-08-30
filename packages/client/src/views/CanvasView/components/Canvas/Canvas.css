@@ -1,0 +1,28 @@
+.canvas {
+  position: relative;
+  border-radius: 5px;
+  background-color: rgb(var(--rgb-background));
+}
+
+.draw-area {
+  border-radius: 5px;
+  background-color: rgb(var(--background));
+}
+
+.user-area,
+.create-area {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.util-area {
+  display: none;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+}

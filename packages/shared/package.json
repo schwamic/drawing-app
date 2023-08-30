@@ -1,0 +1,8 @@
+{
+  "name": "@drawing-app/shared",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  }
+}

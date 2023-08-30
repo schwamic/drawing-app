@@ -1,0 +1,21 @@
+.info-box {
+  width: 600px;
+  padding: 20px;
+  border: 2px solid rgb(var(--rgb-outline));
+  border-radius: 5px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.info-box__title {
+  margin: 0;
+}
+
+.info-box__text {
+  margin: 0;
+}
+
+.info-box__close-btn {
+  float: right;
+  cursor: pointer;
+}

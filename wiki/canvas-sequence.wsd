@@ -1,0 +1,36 @@
+@startuml canvas-sequence
+title Canvas-Websocket-Kommunikation
+
+ClientA -> Server: WS-Verbindung aufbauen
+alt Neuer User
+Server -> Server: Neuen Client anlegen 
+else Bestehender User
+Server -> Server: Client-Informationen lesen 
+end
+Server --> ClientA: Antwort { user }
+
+ClientA -> Server: Auf Canvas anmelden
+Server -> Server: WS-Verbindung im Canvas-Raum speichern
+Server -> Server: Canvas-Events aggregieren und abspeichern
+ClientA <-- Server: Antwort { canvas }
+Server -> Server: Canvas-Event (addPointer) speichern
+Server -> ClientB: Canvas-Event senden
+ClientA <- Server: Canvas-Event senden
+
+alt ClientA Aktivität
+ClientA -> Server: Canvas-Event (z.B. addShape) senden
+Server -> Server: Canvas-Event speichern
+ClientB <- Server: Canvas-Event an Room-Users weiterleiten
+else ClientB Aktivität
+ClientB -> Server: Canvas-Event (z.B. removeShape) senden
+Server -> Server: Canvas-Event speichern
+ClientA <- Server: Canvas-Event an Room-Users weiterleiten
+end
+
+ClientA -> Server: Auf Canvas abmelden
+Server -> Server: WS-Verbindung im Canvas-Raum löschen
+Server -> Server: WS-Verbindung trennen
+Server -> Server: Canvas-Event (removePointer) speichern
+Server -> ClientB: Canvas-Event senden
+
+@enduml
